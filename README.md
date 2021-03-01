@@ -9,7 +9,7 @@ benchmarked in the
 Install this repository with:
 
 ```
-git clone https://github.com/svengronauer/RL-Safety-Algorithms.git
+git clone https://github.com/SvenGronauer/RL-Safety-Algorithms.git
 
 cd RL-Safety-Algorithms
 
@@ -22,7 +22,7 @@ pip install -e .
 Works with every environment that is compatible with the OpenAI Gym interface:
 
 ```
-python rl_safety_algorithms.train --alg trpo --env CartPole-v0
+python -m rl_safety_algorithms.train --alg trpo --env MountainCarContinuous-v0
 ```
 
 For an open-source framework to benchmark and test safety, we recommend the 
@@ -30,5 +30,5 @@ For an open-source framework to benchmark and test safety, we recommend the
 algorithms such as Constrained Policy Optimization, run:
 
 ```
-python rl_safety_algorithms.train --alg cpo --env SafetyBallCircle-v0
+python -m rl_safety_algorithms.train --alg cpo --env SafetyBallCircle-v0
 ```
