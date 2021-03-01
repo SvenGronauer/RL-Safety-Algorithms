@@ -12,9 +12,9 @@ try:
 except ImportError:
     warnings.warn('pybullet_envs package not found.')
 try:
-    import open_safety_gym.envs  # noqa
+    import bullet_safety_gym  # noqa
 except ImportError:
-    warnings.warn('open-safety-gym package not found.')
+    warnings.warn('Bullet-Safety-Gym package not found.')
 
 
 if __name__ == '__main__':

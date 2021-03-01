@@ -38,9 +38,9 @@ try:
 except ImportError:
     warnings.warn('pybullet_envs package not found.')
 try:
-    import open_safety_gym  # noqa
+    import bullet_safety_gym  # noqa
 except ImportError:
-    warnings.warn('open-safety-gym package not found.')
+    warnings.warn('bullet-safety-gym package not found.')
 
 
 def run_training(**kwargs) -> None:
