@@ -1,5 +1,5 @@
 from rl_safety_algorithms.benchmark import Benchmark
-import open_safety_gym  # noqa
+import bullet_safety_gym  # noqa
 from safety_settings import alg_setup, argument_parser
 
 
