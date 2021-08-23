@@ -4,9 +4,9 @@
     Date:       19.05.2020
     Updated:    02.12.2020
 """
-from research.common.loggers import setup_logger_kwargs
-from research.common import utils
-from research.common import multi_processing_utils
+from rl_safety_algorithms.common.loggers import setup_logger_kwargs
+from rl_safety_algorithms.common import utils
+from rl_safety_algorithms.common import multi_processing_utils
 import torch
 import os
 import gym
@@ -54,7 +54,7 @@ class Model(object):
         self.scheduler = None
 
     def _evaluate_model(self) -> None:
-        from research.common.experiment_analysis import EnvironmentEvaluator
+        from rl_safety_algorithms.common.experiment_analysis import EnvironmentEvaluator
         evaluator = EnvironmentEvaluator(log_dir=self.logger_kwargs['log_dir'])
         evaluator.eval(env=self.env, ac=self.model, num_evaluations=128)
         # Close opened files to avoid number of open files overflow
@@ -88,7 +88,7 @@ class Model(object):
 
     @classmethod
     def _run_mp_training(cls, **kwargs):
-        from research.common.experiment_analysis import EnvironmentEvaluator
+        from rl_safety_algorithms.common.experiment_analysis import EnvironmentEvaluator
         alg = kwargs.pop('alg')
         env_id = kwargs.pop('env_id')
         logger_kwargs = kwargs.pop('logger_kwargs')

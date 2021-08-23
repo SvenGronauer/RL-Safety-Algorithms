@@ -1,7 +1,7 @@
 import gym
 import time
-from research.algs import core
-from research.common.experiment_analysis import get_file_contents
+from rl_safety_algorithms.algs import core
+from rl_safety_algorithms.common.experiment_analysis import get_file_contents
 import argparse
 import os
 import torch
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         alg = conf.get('alg', 'ppo')
 
         if alg == 'sac':
-            from research.algs.sac.sac import MLPActorCritic
+            from rl_safety_algorithms.algs.sac.sac import MLPActorCritic
             ac = MLPActorCritic(
                 actor_type=conf['actor'],
                 observation_space=env.observation_space,

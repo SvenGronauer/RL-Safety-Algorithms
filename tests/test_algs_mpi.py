@@ -1,12 +1,10 @@
 import unittest
 import gym
 import pybullet_envs  # noqa
-import os
 import time
 import rl_safety_algorithms.common.mpi_tools as mpi_tools
 from rl_safety_algorithms.common.loggers import setup_logger_kwargs
 import rl_safety_algorithms.common.utils as U
-from rl_safety_algorithms.algs import core
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -22,6 +20,7 @@ class TestAlgorithms(unittest.TestCase):
         defaults['num_mini_batches'] = 4
         defaults['steps_per_epoch'] = 1000 * mpi_tools.num_procs()
         defaults['verbose'] = False
+        print(defaults['steps_per_epoch'])
 
         defaults['logger_kwargs'] = setup_logger_kwargs(
             exp_name='unittest',

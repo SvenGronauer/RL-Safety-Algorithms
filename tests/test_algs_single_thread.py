@@ -18,7 +18,7 @@ class TestAlgorithms(unittest.TestCase):
         defaults['epochs'] = 1
         defaults['num_mini_batches'] = 4
         defaults['steps_per_epoch'] = 1000
-        Ddefaults['verbose'] = False
+        defaults['verbose'] = False
 
         defaults['logger_kwargs'] = setup_logger_kwargs(
             exp_name='unittest',
