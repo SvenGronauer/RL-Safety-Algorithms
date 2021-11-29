@@ -1,6 +1,7 @@
 from rl_safety_algorithms.common.model import Model
 import argparse
 import os
+import getpass
 import psutil
 import sys
 import time
@@ -21,6 +22,9 @@ if __name__ == '__main__':
     physical_cores = psutil.cpu_count(logical=False)  # exclude hyper-threading
     # Seed must be < 2**32 => use 2**16 to allow seed += 10000*proc_id() for MPI
     random_seed = int(time.time()) % 2**16
+    user_name = getpass.getuser()
+    default_log_dir = os.path.join('/var/tmp/', user_name)
+
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
@@ -42,7 +46,7 @@ if __name__ == '__main__':
                         help=f'Define the init seed, e.g. {random_seed}')
     parser.add_argument('--search', action='store_true',
                         help='If given search over learning rates.')
-    parser.add_argument('--log-dir', type=str, default='/var/tmp/ga87zej',
+    parser.add_argument('--log-dir', type=str, default=default_log_dir,
                         help='Define a custom directory for logging.')
 
     args, unparsed_args = parser.parse_known_args()
